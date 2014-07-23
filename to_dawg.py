@@ -20,14 +20,17 @@ if __name__ == '__main__':
 
 
 	for filename in source_files:
-		print filename 
 		with open(join(source_dir, filename), 'r') as input_file:
 			contents = input_file.read()
-			with open(join(target_dir, filename + ".dawg"), 'w') as output_file:
-				if filename == 'mappings':
+		
+			if filename == 'mappings':
+				with open(join(target_dir, 'mappings'), 'w'):
 					# copy source to destination 
 					output_file.write(contents)
-				else:
+			else:
+				print filename 
+				
+				with open(join(target_dir, filename + ".dawg"), 'w') as output_file:
 					lines = contents.split("\n")
 					d = DAWG(l for l in lines if len(l) > 0)
 					d.write(output_file)
