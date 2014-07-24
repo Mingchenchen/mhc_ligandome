@@ -14,7 +14,6 @@ if __name__ == '__main__':
 	target_dir = source_dir + "_marisa"
 	if exists(target_dir):
 		os.rmdir(target_dir)
-	
 	makedirs(target_dir)
 	source_files = listdir(source_dir)
 
@@ -25,7 +24,7 @@ if __name__ == '__main__':
 			contents = input_file.read()
 			
 			if filename == 'mappings':
-				with open(join(target_dir, 'mappings'), 'w'):
+				with open(join(target_dir, 'mappings'), 'w') as output_file:
 					# copy source to destination 
 					output_file.write(contents)
 			else:
