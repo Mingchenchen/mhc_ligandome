@@ -20,6 +20,8 @@ if __name__ == '__main__':
 
 
 	for filename in source_files:
+		print filename 
+			
 		with open(join(source_dir, filename), 'r') as input_file:
 			contents = input_file.read()
 		
@@ -28,8 +30,6 @@ if __name__ == '__main__':
 					# copy source to destination 
 					output_file.write(contents)
 			else:
-				print filename 
-				
 				with open(join(target_dir, filename + ".dawg"), 'w') as output_file:
 					lines = contents.split("\n")
 					d = DAWG(l for l in lines if len(l) > 0)
