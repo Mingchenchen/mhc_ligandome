@@ -10,7 +10,7 @@ if __name__ == '__main__':
 	if source_dir.endswith("/"):
 		source_dir = source_dir[:-1]
 	assert exists(source_dir)
-        target_dir = source_dir + "_reduced"
+    target_dir = source_dir + "_reduced"
 	if exists(target_dir):
 		os.rmdir(target_dir)
 	makedirs(target_dir)
